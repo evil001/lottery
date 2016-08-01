@@ -1,0 +1,11 @@
+body{
+	font-family: verdana;
+	font-size: 14px;
+	margin: 0;
+}
+.container{
+	margin: 0 auto;
+	width: 900px;
+	height: 500px;
+	background: #cd5c5c;
+}

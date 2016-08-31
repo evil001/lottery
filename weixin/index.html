@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<meta content="app-id=518966501" name="apple-itunes-app" />
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="../js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8" language="JavaScript"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8" language="JavaScript"></script>
+		<script src="js/buttom.js" type="text/javascript" charset="utf-8" language="JavaScript"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8" language="JavaScript"></script>
+		<script src="js/cart_common.js" type="text/javascript" charset="utf-8" language="JavaScript"></script>
+		<script src="js/dialog.js" type="text/javascript" charset="utf-8" language="JavaScript"></script>
+		<script src="js/silder.js" type="text/javascript" language="JavaScript"></script>
+	</head>
+
+	<body fnav="1" style="zoom: 1;">
+		<div class="" id="loadingPicBlock">
+			<!-- 关注微信 -->
+			<div id="div_subscribe" class="app-icon-wrapper" style="">
+				<div class="app-icon">
+					<a href="javascript:;" class="close-icon"><i class="set-icon"></i></a>
+					<a href="javascript:;" class="info-icon">
+						<i class="set-icon"></i>
+						<div class="info">
+							<p>点击关注1元云购官方微信^_^</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			<!-- 焦点图 -->
+			<div class="hotimg-wrapper">
+				<div class="hotimg-top"></div>
+				<section id="sliderBox" class="hotimg">
+					<div class="flex-viewport" style="overflow: hidden; position: relative;">
+						<ul class="slides" style="width: 600%; transition-duration: 0.4s; transform: translate3d(-1280px, 0px, 0px);">
+							<li style="width: 640px; float: left; display: block;" class="clone">
+								<a href="http://weixin.1yyg.com/v20/products/22817.html?pf=weixin"><img src="http://img.1yyg.com/Poster/20160825135649888.jpg" alt=""></a>
+							</li>
+							<li class="" style="width: 640px; float: left; display: block;">
+								<a href="http://weixin.1yyg.com/v20/products/23422.html?pf=weixin"><img src="http://img.1yyg.com/Poster/20160825162212944.jpg" alt=""></a>
+							</li>
+							<li style="width: 640px; float: left; display: block;" class="flex-active-slide">
+								<a href="http://weixin.1yyg.com/v20/list/b453m1.html?pf=weixin"><img src="http://img.1yyg.com/Poster/20160825144539985.jpg" alt=""></a>
+							</li>
+							<li style="width: 640px; float: left; display: block;" class="">
+								<a href="http://weixin.1yyg.com/v20/products/22592.html?pf=weixin"><img src="http://img.1yyg.com/Poster/20160825135839779.jpg" alt=""></a>
+							</li>
+							<li style="width: 640px; float: left; display: block;" class="">
+								<a href="http://weixin.1yyg.com/v20/products/22817.html?pf=weixin"><img src="http://img.1yyg.com/Poster/20160825135649888.jpg" alt=""></a>
+							</li>
+							<li class="clone" style="width: 640px; float: left; display: block;">
+								<a href="http://weixin.1yyg.com/v20/products/23422.html?pf=weixin"><img src="http://img.1yyg.com/Poster/20160825162212944.jpg" alt=""></a>
+							</li>
+						</ul>
+						<article class="flex-control-nav flex-control-paging">
+							<a class=""></a>
+							<a class="flex-active"></a>
+							<a class=""></a>
+							<a class=""></a>
+						</article>
+					</div>
+				</section>
+			</div>
+
+			<!--导航-->
+			<div style="border-top: none;">
+				<nav id="goodsNav" class="nav-wrapper">
+					<div class="nav-inner">
+						<ul id="ulOrder" class="nav-list clearfix">
+							<li order="10" class="current">
+								<a href="javascript:;"><span>即将揭晓</span></a>
+							</li>
+							<li order="20">
+								<a href="javascript:;"><span>人气</span></a>
+							</li>
+							<li order="50">
+								<a href="javascript:;"><span>最新</span></a>
+							</li>
+							<li order="31">
+								<a href="javascript:;"><span>价值</span></a>
+							</li>
+						</ul>
+					</div>
+					<!--点击添加或移除current-->
+					<div id="divSort" class="select-btn">
+						<span class="select-icon">
+                        <i></i><i></i><i></i><i></i>
+                    </span> 分类
+					</div>
+					<!--分类-->
+					<div class="select-total" style="display: none">
+						<ul class="sort_list">
+							<li sortid="0">
+								<a href="javascript:;">全部分类</a>
+							</li>
+							<li sortid="100">
+								<a href="javascript:;">手机数码</a>
+							</li>
+							<li sortid="106">
+								<a href="javascript:;">电脑办公</a>
+							</li>
+							<li sortid="104">
+								<a href="javascript:;">家用电器</a>
+							</li>
+							<li sortid="222">
+								<a href="javascript:;">钟表首饰</a>
+							</li>
+							<li sortid="2">
+								<a href="javascript:;">化妆个护</a>
+							</li>
+							<li sortid="276">
+								<a href="javascript:;">运动户外</a>
+							</li>
+							<li sortid="397">
+								<a href="javascript:;">食品饮料</a>
+							</li>
+							<li sortid="213">
+								<a href="javascript:;">家居家纺</a>
+							</li>
+							<li sortid="251">
+								<a href="javascript:;">礼品箱包</a>
+							</li>
+							<li sortid="310">
+								<a href="javascript:;">母婴</a>
+							</li>
+							<li sortid="428">
+								<a href="javascript:;">营养保健</a>
+							</li>
+							<li sortid="305">
+								<a href="javascript:;">汽车</a>
+							</li>
+							<li sortid="617">
+								<a href="javascript:;">房子</a>
+							</li>
+							<li sortid="312">
+								<a href="javascript:;">其他商品</a>
+							</li>
+							<li sortid="400">
+								<a href="javascript:;">限购专区</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<!--商品列表-->
+			<div class="goods-wrap marginB">
+				<ul id="ulGoodsList" class="goods-list clearfix">
+					<li id="22969">
+						<a href="javascript:;" class="g-pic"><img src="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160225144642451.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>22881</em>云)平安银行 招财进宝猴年生肖金条 Au9999 20g</p><ins class="gray9">价值：￥6688.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 97.17404306220095%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7978824">立即1元云购</a>
+							<div class="gRate" codeid="7978824">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22593">
+						<a href="javascript:;" class="g-pic"><img src="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151026181548493.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>324156</em>云)平安银行 招财进宝金章 Au9999 5g</p><ins class="gray9">价值：￥1688.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 91.94312796208531%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7967329">立即1元云购</a>
+							<div class="gRate" codeid="7967329">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22912">
+						<a href="javascript:;" class="g-pic"><img src="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160119091501424.jpg" width="136" height="136">
+							<div class="pTitle pPurchase">限购</div>
+						</a>
+						<p class="g-name">(第<em>657</em>云)平安银行 平安金元宝 Au9999 200g</p><ins class="gray9">价值：￥68888.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 89.80664266635698%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7281012">立即1元云购</a>
+							<div class="gRate" codeid="7281012">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23422">
+						<a href="javascript:;" class="g-pic"><img src="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160819170625626.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1708</em>云)美心（Mexin）双黄白莲蓉月饼礼盒 185gx4个</p><ins class="gray9">价值：￥238.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 88.65546218487395%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7962689">立即1元云购</a>
+							<div class="gRate" codeid="7962689">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22970">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160225145319600.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>51755</em>云)平安银行 招财进宝猴年生肖金条 Au9999 10g</p><ins class="gray9">价值：￥3488.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 86.78325688073394%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7969377">立即1元云购</a>
+							<div class="gRate" codeid="7969377">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22402">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160628144853334.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>41728</em>云)伊利 原味优酸乳 250mlx24盒 整箱装</p><ins class="gray9">价值：￥58.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 84.48275862068965%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7925612">立即1元云购</a>
+							<div class="gRate" codeid="7925612">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23328">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160812135118851.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>76813</em>云)小米（MIUI）红米3S 16GB 全网通 4G手机</p><ins class="gray9">价值：￥799.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 83.60450563204004%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7981832">立即1元云购</a>
+							<div class="gRate" codeid="7981832">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23192">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160524164724675.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>2784</em>云)冈本（Okamoto）skin肤感至尊安全套 10片/盒x4 原装进口</p><ins class="gray9">价值：￥116.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 82.75862068965517%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7541692">立即1元云购</a>
+							<div class="gRate" codeid="7541692">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23362">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160708114540167.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>169</em>云)百年同康 精选特级白燕盏 100g/盒 马来西亚燕窝</p><ins class="gray9">价值：￥3399.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 81.46513680494263%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7391793">立即1元云购</a>
+							<div class="gRate" codeid="7391793">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22612">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151105111557474.jpg" width="136" height="136">
+							<div class="pTitle pPurchase">限购</div>
+						</a>
+						<p class="g-name">(第<em>14311</em>云)苹果（Apple）iPhone 6s Plus 128G版 4G手机</p><ins class="gray9">价值：￥7588.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 80.71955719557195%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7790876">立即1元云购</a>
+							<div class="gRate" codeid="7790876">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23426">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160822155336558.jpg" width="136" height="136">
+							<div class="pTitle pPurchase">限购</div>
+						</a>
+						<p class="g-name">(第<em>1</em>云)进口大众 Tiguan 2016款 2.0TSI 四驱标准型</p><ins class="gray9">价值：￥358888.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 79.30747196897082%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7929495">立即1元云购</a>
+							<div class="gRate" codeid="7929495">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22897">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160114181936335.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>61411</em>云)维他 柠檬茶 310mlx12罐 整箱装</p><ins class="gray9">价值：￥48.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 77.08333333333333%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7936011">立即1元云购</a>
+							<div class="gRate" codeid="7936011">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22792">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151223133144598.jpg" width="136" height="136">
+							<div class="pTitle pPurchase">限购</div>
+						</a>
+						<p class="g-name">(第<em>990</em>云)苹果（Apple）iMac MK462CH/A 27英寸一体电脑</p><ins class="gray9">价值：￥13488.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 76.81642941874259%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7086321">立即1元云购</a>
+							<div class="gRate" codeid="7086321">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23207">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160525171802206.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>200</em>云)十月流年 至尊 PT950铂金男士手链 约33.5g</p><ins class="gray9">价值：￥14280.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 76.26050420168067%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7558268">立即1元云购</a>
+							<div class="gRate" codeid="7558268">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23375">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160718164454605.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>14394</em>云)中国黄金 薄片财富金条 Au9999 2g</p><ins class="gray9">价值：￥688.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 73.54651162790698%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="8003217">立即1元云购</a>
+							<div class="gRate" codeid="8003217">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="21443">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160628134358680.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>9076</em>云)九阳（Joyoung ）DJ13B-D08EC 豆浆机</p><ins class="gray9">价值：￥399.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 72.93233082706767%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7200573">立即1元云购</a>
+							<div class="gRate" codeid="7200573">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="21854">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160728102328241.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>250591</em>云)红牛（RedBull）维生素功能饮料（原味型）250mlx12罐</p><ins class="gray9">价值：￥73.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 72.6027397260274%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7869484">立即1元云购</a>
+							<div class="gRate" codeid="7869484">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23409">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160816112231103.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>199</em>云)阿迪达斯（adidas）2016年新款 男子多功能系列 跑步鞋 AQ2195</p><ins class="gray9">价值：￥499.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 71.7434869739479%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7952234">立即1元云购</a>
+							<div class="gRate" codeid="7952234">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22889">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160112172843700.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>2688</em>云)八马茶业 武夷山大红袍 茶叶礼盒装 160克</p><ins class="gray9">价值：￥330.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 70%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7990371">立即1元云购</a>
+							<div class="gRate" codeid="7990371">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23393">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160811110541277.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>15875</em>云)平安银行 平安金福金条 Au9999 2g</p><ins class="gray9">价值：￥699.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 69.67095851216023%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7996865">立即1元云购</a>
+							<div class="gRate" codeid="7996865">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22030">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160628145050389.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>28489</em>云)金龙鱼 玉米油 4L 非转基因压榨食用油</p><ins class="gray9">价值：￥70.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 67.14285714285714%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7824168">立即1元云购</a>
+							<div class="gRate" codeid="7824168">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22442">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20150731180339729.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>14454</em>云)华为（HUAWEI）小天鹅蓝牙免提音箱 AM08（白色）</p><ins class="gray9">价值：￥139.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 66.18705035971223%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7370794">立即1元云购</a>
+							<div class="gRate" codeid="7370794">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22251">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20150505182649893.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>2556</em>云)雷蛇（Razer）BlackWidow Chroma 黑寡妇蜘蛛幻彩版 机械键盘</p><ins class="gray9">价值：￥1099.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 65.9690627843494%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7712703">立即1元云购</a>
+							<div class="gRate" codeid="7712703">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23428">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160822175413766.jpg" width="136" height="136">
+							<div class="pTitle pPurchase">限购</div>
+						</a>
+						<p class="g-name">(第<em>13</em>云)平安银行 平安金福金条 Au9999 50g</p><ins class="gray9">价值：￥17388.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 63.78536922015183%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7932064">立即1元云购</a>
+							<div class="gRate" codeid="7932064">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22588">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151022151353268.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1059</em>云)苹果（Apple）iMac MK452CH/A 21.5英寸一体电脑</p><ins class="gray9">价值：￥10999.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 63.6239658150741%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7791961">立即1元云购</a>
+							<div class="gRate" codeid="7791961">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22988">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160304161010510.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>8812</em>云)西域美农 红枣夹核桃美仁枣 268g/包x2包</p><ins class="gray9">价值：￥83.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 62.65060240963855%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7919963">立即1元云购</a>
+							<div class="gRate" codeid="7919963">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23347">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160630174335661.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>317</em>云)美的（Midea）BCD-246WTZM(E) 246升 三门冰箱 风冷智能 WIFI远程操控 睿智金</p><ins class="gray9">价值：￥2499.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 60.34413765506203%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7926162">立即1元云购</a>
+							<div class="gRate" codeid="7926162">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23148">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160510134806528.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>665</em>云)陌森（Molsion）复古前卫时尚防紫外线太阳眼镜 MS6000 C10（偏光）</p><ins class="gray9">价值：￥448.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 58.92857142857143%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7595511">立即1元云购</a>
+							<div class="gRate" codeid="7595511">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23425">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160822155218592.jpg" width="136" height="136">
+							<div class="pTitle pPurchase">限购</div>
+						</a>
+						<p class="g-name">(第<em>1</em>云)奥迪（Audi）A6L 2016款 30 FSI 舒适型轿车</p><ins class="gray9">价值：￥509999.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 57.16168070917786%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7929491">立即1元云购</a>
+							<div class="gRate" codeid="7929491">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22879">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160111163331690.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>8574</em>云)芝华士（Chivas）12年苏格兰威士忌 700ml</p><ins class="gray9">价值：￥239.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 56.48535564853557%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7307791">立即1元云购</a>
+							<div class="gRate" codeid="7307791">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23423">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160822134428814.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1301</em>云)元朗荣华 双黄白莲蓉月饼礼盒 185gx4个</p><ins class="gray9">价值：￥188.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 56.38297872340426%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7961659">立即1元云购</a>
+							<div class="gRate" codeid="7961659">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23374">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160715175150663.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>228</em>云)满玉玉瓷 6头白玉碗筷勺餐具 礼盒套装</p><ins class="gray9">价值：￥1380.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 56.08695652173913%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7513982">立即1元云购</a>
+							<div class="gRate" codeid="7513982">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22954">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160218164500756.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>2564</em>云)乐视 超级电视 第3代X43（X3-43）43英寸 智能网络液晶平板电视（标配底座）</p><ins class="gray9">价值：￥2799.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 54.05501964987496%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7553046">立即1元云购</a>
+							<div class="gRate" codeid="7553046">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23366">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160712172036844.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>79</em>云)别克（Buick）昂科拉 2016款 18T 自动两驱都市领先型</p><ins class="gray9">价值：￥169888.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 53.87137408174797%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7708217">立即1元云购</a>
+							<div class="gRate" codeid="7708217">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22905">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160115164530700.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>8486</em>云)青岛啤酒（Tsingtao）奥古特12度 500mlx12听 整箱装</p><ins class="gray9">价值：￥105.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 53.333333333333336%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7709606">立即1元云购</a>
+							<div class="gRate" codeid="7709606">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22804">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151225154231285.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1367</em>云)摩托罗拉（MOTOROLA）Moto 360 第二代46毫米智能手表 男款 太空银</p><ins class="gray9">价值：￥1999.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 53.076538269134566%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7838716">立即1元云购</a>
+							<div class="gRate" codeid="7838716">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="21908">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151214171921789.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>60722</em>云)福临门 优质 东北大米 4kgx2包</p><ins class="gray9">价值：￥59.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 52.54237288135593%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7755054">立即1元云购</a>
+							<div class="gRate" codeid="7755054">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23121">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160429170034625.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1390</em>云)蕉下（BananaUmbrella）梅染/落柿双层防晒小黑伞</p><ins class="gray9">价值：￥249.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 52.208835341365464%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7947972">立即1元云购</a>
+							<div class="gRate" codeid="7947972">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22878">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160111160433969.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>7988</em>云)人头马（Remy Martin）CLUB特优香槟干邑白兰地 700ml</p><ins class="gray9">价值：￥698.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 52.14899713467049%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="8006581">立即1元云购</a>
+							<div class="gRate" codeid="8006581">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23002">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160309160735793.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>672</em>云)坚果（JmGO）G1S 智能高清投影机 金色</p><ins class="gray9">价值：￥3699.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 50.12165450121655%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7919710">立即1元云购</a>
+							<div class="gRate" codeid="7919710">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22031">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20150708112557251.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>246902</em>云)金龙鱼 优质东北大米 5kg</p><ins class="gray9">价值：￥42.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 50%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7831309">立即1元云购</a>
+							<div class="gRate" codeid="7831309">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23001">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160309145553231.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>4616</em>云)荟智（Huizhi）儿童电动车 三轮可坐玩具汽车 HW666</p><ins class="gray9">价值：￥599.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 49.08180300500835%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="8006397">立即1元云购</a>
+							<div class="gRate" codeid="8006397">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22616">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151106104057749.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>29762</em>云)统一 汤达人 酸酸辣辣豚骨面 12杯 整箱装</p><ins class="gray9">价值：￥58.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 48.275862068965516%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7687636">立即1元云购</a>
+							<div class="gRate" codeid="7687636">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23405">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160815164610204.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>262</em>云)百草味 玉满堂 中秋坚果干果礼盒 1710g</p><ins class="gray9">价值：￥168.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 47.023809523809526%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7859475">立即1元云购</a>
+							<div class="gRate" codeid="7859475">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23182">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160523182729421.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1559</em>云)红牛（RedBull）劲能饮料 250mlx12罐 奥地利进口</p><ins class="gray9">价值：￥168.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 47.023809523809526%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7518623">立即1元云购</a>
+							<div class="gRate" codeid="7518623">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22667">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151119164928786.jpg" width="136" height="136">
+							<div class="pTitle pPurchase">限购</div>
+						</a>
+						<p class="g-name">(第<em>7685</em>云)苹果（Apple）iPhone 6s Plus 16G版 4G手机</p><ins class="gray9">价值：￥5699.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 46.90296543253202%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7690533">立即1元云购</a>
+							<div class="gRate" codeid="7690533">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23356">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160706153737229.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1207</em>云)奥克斯（AUX）KFR-35GW/BpAYA600(A1) 正1.5匹 壁挂式云变频冷暖空调</p><ins class="gray9">价值：￥3699.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 46.85050013517167%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="8006346">立即1元云购</a>
+							<div class="gRate" codeid="8006346">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23300">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160613145603290.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>157</em>云)华为（HUAWEI）MateBook CoreM5 12英寸平板二合一笔记本电脑</p><ins class="gray9">价值：￥6688.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 45.589114832535884%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7937771">立即1元云购</a>
+							<div class="gRate" codeid="7937771">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23421">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160818150435571.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>18</em>云)GE ATS 5000 净水器 家用厨房高端过滤直饮</p><ins class="gray9">价值：￥2599.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 45.248172373989995%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7919836">立即1元云购</a>
+							<div class="gRate" codeid="7919836">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23006">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160310143808548.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>5727</em>云)荟智（Huizhi）新款儿童滑板车 三轮可调节玩具踏板车</p><ins class="gray9">价值：￥149.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 44.966442953020135%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7961121">立即1元云购</a>
+							<div class="gRate" codeid="7961121">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23350">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160707105042718.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>346</em>云)凌度（BLACKVIEW）安霸A12 高清夜视行车记录仪</p><ins class="gray9">价值：￥699.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 44.92131616595136%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7840574">立即1元云购</a>
+							<div class="gRate" codeid="7840574">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23102">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160421150432235.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>2110</em>云)国牌 特级潮州凤凰单丛茶叶 250克</p><ins class="gray9">价值：￥339.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 44.54277286135693%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7610222">立即1元云购</a>
+							<div class="gRate" codeid="7610222">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23251">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160530174846601.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>2330</em>云)中国黄金 梯形投资金条 Au9999 50g</p><ins class="gray9">价值：￥17288.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 44.487505784359094%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7920802">立即1元云购</a>
+							<div class="gRate" codeid="7920802">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23128">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160504104207959.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>74</em>云)欧米茄（OMEGA）星座系列 女士石英手表 123.25.24.60.05.001</p><ins class="gray9">价值：￥41840.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 44.25908221797323%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7761198">立即1元云购</a>
+							<div class="gRate" codeid="7761198">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22156">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20150312182537827.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>805</em>云)苹果（Apple）Apple Watch Sport 42毫米深灰色铝金属表壳搭配运动型表带</p><ins class="gray9">价值：￥2588.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 44.20401854714065%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7662631">立即1元云购</a>
+							<div class="gRate" codeid="7662631">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23365">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160711174401669.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1090</em>云)新功（SEKO）F64 鸡翅木全自动茶盘茶具套装 配K29电磁茶炉</p><ins class="gray9">价值：￥930.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 43.97849462365591%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7537323">立即1元云购</a>
+							<div class="gRate" codeid="7537323">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22396">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160628152318536.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>34186</em>云)怡宝 纯净水 350mlx24瓶 整箱装</p><ins class="gray9">价值：￥39.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 43.58974358974359%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7933966">立即1元云购</a>
+							<div class="gRate" codeid="7933966">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23167">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160518093613805.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>1559</em>云)小米（MIUI）Max 32GB 全网通 标准版 4G手机</p><ins class="gray9">价值：￥1799.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 43.52418010005559%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7520145">立即1元云购</a>
+							<div class="gRate" codeid="7520145">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="22991">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160307160710261.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>559</em>云)阿尔法（Alpha）1S 智能玩具机器人 可编程遥控</p><ins class="gray9">价值：￥2999.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 43.41447149049683%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7763190">立即1元云购</a>
+							<div class="gRate" codeid="7763190">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+					<li id="23171">
+						<a href="javascript:;" class="g-pic"><img src="http://mskin.1yyg.com/v20/weixin/images/loading2.gif?v=130820" src2="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160518134132605.jpg" width="136" height="136"></a>
+						<p class="g-name">(第<em>729</em>云)悠骑（JQ）新悠美款 12寸锂电折叠电动车自行车</p><ins class="gray9">价值：￥2680.00</ins>
+						<div class="Progress-bar">
+							<p class="u-progress"><span class="pgbar" style="width: 42.723880597014926%;"><span class="pging"></span></span>
+							</p>
+						</div>
+						<div class="btn-wrap">
+							<a href="javascript:;" class="buy-btn" codeid="7702532">立即1元云购</a>
+							<div class="gRate" codeid="7702532">
+								<a href="javascript:;"><s></s></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="loading clearfix"><b></b>正在加载</div>
+			</div>
+			<!--底部-->
+
+			<input id="hidPageType" type="hidden" value="0">
+			<input id="hidIsHttps" type="hidden" value="0">
+			<input id="hidSiteVer" type="hidden" value="v20">
+			<input id="hidOpenID" type="hidden" value="">
+			<div class="footer clearfix" style="bottom: 0px;">
+				<ul>
+					<li class="f_home">
+						<a href="/v20/index.do" class="hover"><i></i>云购</a>
+					</li>
+					<li class="f_announced">
+						<a href="/v20/lottery/"><i></i>最新揭晓</a>
+					</li>
+					<li class="f_single">
+						<a href="/v20/post/index.do"><i></i>晒单</a>
+					</li>
+					<li class="f_car">
+						<a id="btnCart" href="/v20/mycart/index.do"><i></i>购物车</a>
+					</li>
+					<li class="f_personal">
+						<a href="/v20/member/index.do"><i></i>我的云购</a>
+					</li>
+				</ul>
+			</div>
+			<script type="text/javascript">
+				var Base = {
+					head: document.getElementsByTagName("head")[0] || document.documentElement,
+					Myload: function(B, A) {
+						this.done = false;
+						B.onload = B.onreadystatechange = function() {
+							if(!this.done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
+								this.done = true;
+								A();
+								B.onload = B.onreadystatechange = null;
+								if(this.head && B.parentNode) {
+									this.head.removeChild(B)
+								}
+							}
+						}
+					},
+					getScript: function(A, C) {
+						var B = function() {};
+						if(C != undefined) {
+							B = C;
+						}
+						var D = document.createElement("script");
+						D.setAttribute("language", "javascript");
+						D.setAttribute("type", "text/javascript");
+						D.setAttribute("src", A);
+						this.head.appendChild(D);
+						this.Myload(D, B);
+					},
+					getStyle: function(A, B) {
+						var B = function() {};
+						if(callBack != undefined) {
+							B = callBack;
+						}
+						var C = document.createElement("link");
+						C.setAttribute("type", "text/css");
+						C.setAttribute("rel", "stylesheet");
+						C.setAttribute("href", A);
+						this.head.appendChild(C);
+						this.Myload(C, B);
+					}
+				}
+
+				function GetVerNum() {
+					var D = new Date();
+					return D.getFullYear().toString().substring(2, 4) + '.' + (D.getMonth() + 1) + '.' + D.getDate() + '.' + D.getHours() + '.' + (D.getMinutes() < 10 ? '0' : D.getMinutes().toString().substring(0, 1));
+				}
+				$(document).ready(function() {
+					var _SkinDomain = $("#hidIsHttps").val() == "1" ? "https://mskin.1yyg.com" : "http://mskin.1yyg.com";
+					Base.getScript(_SkinDomain + '/v20/weixin/JS/Bottom.js?v=' + GetVerNum(), function() {
+						var _pagetype = $("#hidPageType").val();
+						var _footer = $("div.footer");
+						var _cartpay = $("#mycartpay");
+						var _cartlist = 0; //$("li", "#cartBody");
+						var _saysome = $("div.saysome");
+						var _curpage = window.location.href.toLowerCase();
+
+						var _ishide = false;
+						if(_cartpay.length > 0 && _cartlist.length > 0) {
+							_footer = _cartpay;
+							_pagetype = "1";
+							_ishide = true;
+						} else if(_saysome.length > 0) {
+							_footer = _saysome;
+							_pagetype = "1";
+						}
+						//弹出输入法是否隐藏底部导航
+						if(_curpage.indexOf('/member/recharge.do') > 0 || _curpage.indexOf('/member/goodsbuydetail-') > 0) {
+							_ishide = true;
+						}
+
+						var _hh = parseInt($(window).height());
+						var _ww = $(window).width();
+						if(_pagetype != "-1" && _footer.length > 0) {
+							var SetFooterPos = function() {
+								var j = 0;
+								var _setObj;
+								_setObj = setInterval(function() {
+									var _hh1 = parseInt($(window).height());
+									var _hh2 = _hh - _hh1;
+
+									if(_hh1 > 200) {
+										if(_hh2 > 0) {
+											if(parseInt($(window).width()) != parseInt(_ww)) {
+												_footer.css("bottom", 0).show();
+											}
+										} else {
+											_footer.css("bottom", 0).show();
+										}
+										j++;
+										//$("#mycarttest").html(_hh1 + "||" + _hh2 + "||" + $(window).width());
+										if(j == 3) {
+											clearInterval(_setObj);
+										}
+									}
+								}, 100);
+							}
+
+							SetFooterPos();
+
+							window.onresize = function() {
+								if(_ishide) {
+									_footer.hide();
+								}
+								SetFooterPos();
+							};
+						}
+					});
+				});
+			</script>
+			<div style="display: none;">
+				<script type="text/javascript" language="JavaScript" src="http://s22.cnzz.com/stat.php?id=3362429&amp;web_id=3362429"></script>
+				<script src="http://c.cnzz.com/core.php?web_id=3362429&amp;t=z" charset="utf-8" type="text/javascript"></script>
+				<a href="http://www.cnzz.com/stat/website.php?web_id=3362429" target="_blank" title="站长统计">站长统计</a>
+			</div>
+			<div class="weixin-mask" style="display: none;"></div>
+		</div>
+
+		<div id="div_fastnav" class="fast-nav-wrapper">
+			<ul class="fast-nav">
+				<li id="li_menu">
+					<a href="javascript:;"><i class="nav-menu"></i></a>
+				</li>
+				<li id="li_top" style="display:none;">
+					<a href="javascript:;"><i class="nav-top"></i></a>
+				</li>
+			</ul>
+			<div class="sub-nav seven" style="display:none;">
+				<a href="/v20/index.do"><i class="home"></i>云购</a>
+				<a href="/v20/lottery/"><i class="announced"></i>最新揭晓</a>
+				<a href="/v20/post/index.do"><i class="single"></i>晒单</a>
+				<a href="/v20/member/"><i class="personal"></i>我的云购</a>
+				<a href="/v20/mycart/"><i class="shopcar"></i>购物车</a>
+				<a href="javascript:;" id="a_subscribe"><i class="follow"></i>关注微信号</a>
+				<a href="javascript:location.replace('http://weixin.1yyg.com/');"><i class="refresh"></i>刷新</a>
+			</div>
+		</div>
+	</body>
+
+</html>

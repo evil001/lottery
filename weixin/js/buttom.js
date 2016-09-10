@@ -252,5 +252,5 @@ function scrollForLoadData(a) {
 			}
 		})
 	};
-	Base.getScript(Gobal.Skin + "/JS/Comm.js?v=160304", a)
+	//Base.getScript(Gobal.Skin + "/JS/Comm.js?v=160304", a)
 })();

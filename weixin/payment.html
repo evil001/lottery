@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	    <title>结算支付</title>
+	    <meta content="app-id=518966501" name="apple-itunes-app">
+	    <meta content="yes" name="apple-mobile-web-app-capable">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    <meta content="telephone=no" name="format-detection">
+	    <link href="css/common.css" rel="stylesheet" type="text/css">
+	    <link href="css/cart_list.css" rel="stylesheet" type="text/css">
+	    <script src="../js/jquery-3.1.0.min.js" language="javascript" type="text/javascript"></script>
+		<script language="javascript" type="text/javascript" src="js/buttom.js"></script>
+		<script language="javascript" type="text/javascript" src="js/common.js"></script>
+		<script language="javascript" type="text/javascript" src="js/cart_common.js"></script>
+		<script language="javascript" type="text/javascript" src="js/payment.js"></script>
+		<script language="javascript" type="text/javascript" src="js/dialog.js"></script>
+	</head>
+	<body id="loadingPicBlock" class="g-acc-bg" style="zoom: 1;">
+
+    <input name="hidShopMoney" type="hidden" id="hidShopMoney" value="4.00">
+    <input name="hidBalance" type="hidden" id="hidBalance" value="0.00">
+    <input name="hidPoints" type="hidden" id="hidPoints" value="21">
+    <input name="hidPayPoints" type="hidden" id="hidPayPoints" value="0">
+    <input name="hidPaylBalance" type="hidden" id="hidPaylBalance" value="0">
+    <input name="hidPayBank" type="hidden" id="hidPayBank" value="4">
+
+    <input name="hidPayWx" type="hidden" id="hidPayWx" value="0">
+    <input name="hidPayWy" type="hidden" id="hidPayWy" value="0">
+    <input name="hidCmbChina" type="hidden" id="hidCmbChina" value="0">
+    <input name="hidIsBuyNext" type="hidden" id="hidIsBuyNext" value="1">
+    <div>
+        <div class="g-pay-lst">
+            <ul>
+                
+                        <li>
+                            <a href="/v21/product/8734791.do">
+                                <span>
+                                    <img src="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160627153048457.jpg" border="0" alt="">
+                                </span>
+                                <dl>
+                                    <dt>
+                                        
+                                            (第189747云)伊利 安慕希常温酸牛奶 205mlx12盒 礼盒装
+                                    </dt>
+                                    <dd><em>1</em>人次/<em>￥1.00</em></dd>
+                                </dl>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/v21/product/8386711.do">
+                                <span>
+                                    <img src="http://mimg.1yyg.com/GoodsPic/pic-200-200/20160804090148267.jpg" border="0" alt="">
+                                </span>
+                                <dl>
+                                    <dt>
+                                        <em class="purchase-icon">限购</em>
+                                            (第105云)苹果（Apple）MacBook 新款12英寸笔记本电脑 256GB闪存
+                                    </dt>
+                                    <dd><em>1</em>人次/<em>￥1.00</em></dd>
+                                </dl>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/v21/product/8392380.do">
+                                <span>
+                                    <img src="http://mimg.1yyg.com/GoodsPic/pic-200-200/20151126171941653.jpg" border="0" alt="">
+                                </span>
+                                <dl>
+                                    <dt>
+                                        
+                                            (第248云)碧欧泉（Biotherm）男士水动力 洁面啫喱 125ml
+                                    </dt>
+                                    <dd><em>2</em>人次/<em>￥2.00</em></dd>
+                                </dl>
+                            </a>
+                        </li>
+                    
+                
+                
+            </ul>
+            <a style="display: none;" id="a_exp" href="javascript:;" class="pay_open pay_pack"><s></s></a>
+            <p class="gray9">总需支付金额：<em class="orange"><i>￥</i>4.00</em></p>
+        </div>
+
+        <div class="other_pay marginB">
+            <a href="javascript:;"><i></i>福分抵扣：<span class="gray9">(可用福分21)</span><em class="orange fr"></em></a>
+            <a href="javascript:;"><i></i>余额支付：<span class="gray9">(余额￥0.00)</span><em class="orange fr"></em></a>
+            <a href="javascript:;" class="wzf checked"><b class="z-set"></b>第三方支付<em class="orange fr"><span class="colorbbb">需要支付&nbsp;</span><b>￥</b>4.00</em></a>
+            <div class="net-pay" style="display: block;">
+                <a href="javascript:;" class="checked" id="jd_pay">京东支付<b class="z-set"></b></a>
+            </div>
+        </div>
+        <div class="g-Total-bt">
+            <dd><a id="btnPay" href="javascript:;" class="orangeBtn fr w_account">立即支付</a></dd>
+        </div>
+        
+<input id="hidPageType" type="hidden" value="-1">
+<input id="hidIsHttps" type="hidden" value="0">
+<input id="hidSiteVer" type="hidden" value="v21">
+<input id="hidOpenID" type="hidden" value="">
+<div class="footer clearfix" style="display:none;">
+    <ul>
+        <li class="f_home"><a href="/v21/index.do"><i></i>云购</a></li>
+        <li class="f_announced"><a href="/v21/lottery/"><i></i>最新揭晓</a></li>
+        <li class="f_single"><a href="/v21/post/index.do"><i></i>晒单</a></li>
+        <li class="f_car"><a id="btnCart" href="/v21/mycart/index.do"><i><b num="3">3</b></i>购物车</a></li>
+        <li class="f_personal"><a href="/v21/member/index.do"><i></i>我的云购</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var Base = {
+        head: document.getElementsByTagName("head")[0] || document.documentElement,
+        Myload: function (B, A) {
+            this.done = false;
+            B.onload = B.onreadystatechange = function () {
+                if (!this.done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
+                    this.done = true;
+                    A();
+                    B.onload = B.onreadystatechange = null;
+                    if (this.head && B.parentNode) {
+                        this.head.removeChild(B)
+                    }
+                }
+            }
+        },
+        getScript: function (A, C) {
+            var B = function () { };
+            if (C != undefined) {
+                B = C;
+            }
+            var D = document.createElement("script");
+            D.setAttribute("language", "javascript");
+            D.setAttribute("type", "text/javascript");
+            D.setAttribute("src", A);
+            this.head.appendChild(D);
+            this.Myload(D, B);
+        },
+        getStyle: function (A, B) {
+            var B = function () { };
+            if (callBack != undefined) {
+                B = callBack;
+            }
+            var C = document.createElement("link");
+            C.setAttribute("type", "text/css");
+            C.setAttribute("rel", "stylesheet");
+            C.setAttribute("href", A);
+            this.head.appendChild(C);
+            this.Myload(C, B);
+        }
+    }
+    function GetVerNum() {
+        var D = new Date();
+        return D.getFullYear().toString().substring(2, 4) + '.' + (D.getMonth() + 1) + '.' + D.getDate() + '.' + D.getHours() + '.' + (D.getMinutes() < 10 ? '0' : D.getMinutes().toString().substring(0, 1));
+    }
+    $(document).ready(function () {
+        var _SkinDomain = $("#hidIsHttps").val() == "1" ? "https://www:yyyg.com:3000" : "http://www.yyyg.com:3000";
+        Base.getScript(_SkinDomain+'/v21/weixin/JS/Bottom.js?v=' + GetVerNum(), function () {
+            var _pagetype = $("#hidPageType").val();
+            var _footer = $("div.footer");
+            var _cartpay = $("#mycartpay");
+            var _cartlist = 0;//$("li", "#cartBody");
+            var _saysome = $("div.saysome");
+            var _curpage = window.location.href.toLowerCase();
+            
+            var _ishide = false;
+            if (_cartpay.length > 0 && _cartlist.length > 0) {
+                _footer = _cartpay;
+                _pagetype = "1";
+                _ishide = true;
+            }
+            else if (_saysome.length > 0)
+            {
+                _footer = _saysome;
+                _pagetype = "1";
+            }
+            //弹出输入法是否隐藏底部导航
+            if (_curpage.indexOf('/member/recharge.do')>0 || _curpage.indexOf('/member/goodsbuydetail-')>0)
+            {
+                _ishide = true;
+            }
+
+            var _hh = parseInt($(window).height());
+            var _ww=$(window).width();
+            if (_pagetype != "-1" && _footer.length>0) {
+                var SetFooterPos = function () {
+                    var j = 0;
+                    var _setObj;
+                    _setObj = setInterval(function (){
+                        var _hh1 = parseInt($(window).height());
+                        var _hh2 = _hh - _hh1;
+
+                        if (_hh1 > 200) {
+                            if (_hh2 > 0) {
+                                if (parseInt($(window).width()) != parseInt(_ww)) {
+                                    _footer.css("bottom", 0).show();
+                                }
+                            }
+                            else {
+                                _footer.css("bottom", 0).show();
+                            }
+                            j++;
+                           //$("#mycarttest").html(_hh1 + "||" + _hh2 + "||" + $(window).width());
+                            if (j == 3) {
+                                clearInterval(_setObj);
+                            }
+                        }
+                    }, 100);
+                }
+
+                SetFooterPos();
+
+                window.onresize = function () {
+                    if (_ishide) {
+                        _footer.hide();
+                    }
+                    SetFooterPos();
+                };
+            }
+        });
+    });
+</script>
+<div style="display: none;">
+    <script type="text/javascript" language="JavaScript" src="http://s22.cnzz.com/stat.php?id=3362429&amp;web_id=3362429"></script><script src="http://c.cnzz.com/core.php?web_id=3362429&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=3362429" target="_blank" title="站长统计">站长统计</a>
+</div>
+    </div>
+
+
+<div id="pageDialog" class="pageDialog" style="width: 255px; height: 45px; position: fixed; left: 547px; top: 45.5px; display: none;"><div class="Prompt">福分不足支付</div></div></body>
+</html>

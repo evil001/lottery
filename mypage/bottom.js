@@ -606,51 +606,50 @@ yg.Bottom = {
 			window.location.reload()
 		},
 		submitMiniLogin: function() {
-			var c = this;
-			if (c.isFastLoginSubmiting) {
+			var obj = this;
+			if (obj.isFastLoginSubmiting) {
 				return
 			}
-			c.isFastLoginSubmiting = true;
-			var d = c.RightLoginObj.find("#miniLoginBtn");
-			var e = c.RightLoginObj.find(".cartLogin-con").find("#username");
-			var g = e.val();
-			var a = c.RightLoginObj.find(".cartLogin-con").find("#password");
-			var b = a.val();
-			if (YG.Bottom.Util.ckMobile(g) === false && YG.Bottom.Util.ckEmail(g) === false) {
-				c.showMiniLoginErrorMsg(e, "请输入正确的手机号或邮箱地址");
+			obj.isFastLoginSubmiting = true;
+			var miniLoginBtn = obj.RightLoginObj.find("#miniLoginBtn");
+			var cartLoginUname = obj.RightLoginObj.find(".cartLogin-con").find("#username");
+			var cartLoginNameVal = cartLoginUname.val();
+			var cartLoginPass = obj.RightLoginObj.find(".cartLogin-con").find("#password");
+			var cartLoginPassVal = cartLoginPass.val();
+			if (yg.Bottom.Util.ckMobile(g) === false && yg.Bottom.Util.ckEmail(g) === false) {
+				obj.showMiniLoginErrorMsg(cartLoginUname, "请输入正确的手机号或邮箱地址");
 				return false
 			}
-			if (b == "") {
-				c.showMiniLoginErrorMsg(a, "请输入登录密码");
+			if (cartLoginPassVal == "") {
+				obj.showMiniLoginErrorMsg(cartLoginPass, "请输入登录密码");
 				return false
 			} else {
-				if (!YG.Bottom.Util.ckPasswd(b)) {
-					c.showMiniLoginErrorMsg(a, "登录密码为6-20长度的字符");
-					a.val("");
+				if (!yg.Bottom.Util.ckPasswd(cartLoginPassVal)) {
+					obj.showMiniLoginErrorMsg(cartLoginPass, "登录密码为6-20长度的字符");
+					cartLoginPass.val("");
 					return false
 				}
 			}
-			if (c.isVcCodeValidated === false) {
-				c.showMiniLoginErrorMsg(null, "请按住滑块，拖动到最右边");
+			if (obj.isVcCodeValidated === false) {
+				obj.showMiniLoginErrorMsg(null, "请按住滑块，拖动到最右边");
 				return
 			}
-			var f = "name=" + g + "&pwd=" + YG.Bottom.Util.escape2(b) + "&auth=" + c.vcCodeAuthStr;
-			d.addClass("letter").val("正在登录...");
-			GetJPData("https://passport.1yyg.com", "userlogin", f,
-			function(h) {
-				var i = h.state;
-				if (i != 0) {
-					d.removeClass("letter").val("登录")
+			var urlParam = "name=" + cartLoginNameVal + "&pwd=" + yg.Bottom.Util.escape2(cartLoginPassVal) + "&auth=" + obj.vcCodeAuthStr;
+			miniLoginBtn.addClass("letter").val("正在登录...");
+			GetJPData("https://passport.1yyg.com", "userlogin", urlParam, function(h) {
+				var state = h.state;
+				if (state != 0) {
+					miniLoginBtn.removeClass("letter").val("登录")
 				}
 				if (i == 0) {
-					c.loginSucCallFun()
+					obj.loginSucCallFun();
 				} else {
-					if (i == 1 && (h.num == -1 || h.num == -6 || h.num == -7)) {
+					if (state == 1 && (h.num == -1 || h.num == -6 || h.num == -7)) {
 						if (h.str == "1") {
 							c.showVcCode();
 							c.resetVcCode();
 							if (h.num == -1) {
-								$.cookie(c.SHOW_VC_CODE, 1, {
+								$.cookie(obj.SHOW_VC_CODE, 1, {
 									expires: c.VC_CODE_EXPIRE,
 									domain: "1yyg.com"
 								});

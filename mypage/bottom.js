@@ -1,5 +1,15 @@
 var yg = yg || {};
 var mainHttp = "http://www.yyyg.com";
+var cartUrl = "http://cart.yyyg.com";
+var passportUrl = "https://passport.yyyg.com";
+var memberUrl = "http://member.yyyg.com";
+var apiUrl = "http://api.yyyg.com";
+var skinUrl = "http://skin.yyyg.com";
+var proHost = "";
+var _IsCartChanged = false;
+var _InsertIntoCart = function() {
+	YG.Bottom.Comm.getUserCartNum();
+};
 (function() {
 	if (window.self !== window.top) {
 		var url = mainHttp;
@@ -19,7 +29,42 @@ function getYYData(host,action,param,fun){
 }
 
 var loadImgFun = function(){
-	
+	var loadingPicBlock = $("#loadingPicBlock");
+	if (loadingPicBlock.length > 0) {
+		var img = loadingPicBlock.find("img");
+		var maxScrollTop = function() {
+			return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+		};
+		var clientHeight = function() {
+			return document.documentElement.clientHeight + d() + 100;
+		};
+		var maxScrollTopVal = maxScrollTop();
+		var maxScrollTopValTmp = maxScrollTopVal;
+		var eachImgFun = function() {
+			img.each(function() {
+				try {
+					if ($(this).parent() != null && $(this).parent().offset() != null) {
+						if ($(this).parent().offset().top <= a()) {
+							var attrSrc = $(this).attr("src2");
+							if (attrSrc) {
+								$(this).attr("src", attrSrc).removeAttr("src2").show()
+							}
+						}
+					}
+				} catch(i) {
+					console.log(i)
+				}
+			})
+		};
+		$(window).bind("scroll", function() {
+			maxScrollTopValTmp = maxScrollTop();
+			if (maxScrollTopValTmp - maxScrollTopVal > 50) {
+				maxScrollTopVal = maxScrollTopValTmp;
+				eachImgFun();
+			}
+		});
+		eachImgFun()
+	}
 }
 
 yg.Bottom = {
@@ -101,7 +146,7 @@ yg.Bottom = {
 				var tmp = 0;
 				var currDate = new Date();
 				var showTimeHtml = currDate.getFullYear() + "-" + (currDate.getMonth() + 1) + "-" + currDate.getDate() + " " + showServerTime(currDate);
-				getYYData(host,"getServerTime","time="+showTimeHtml,function(result){
+				getYYData(proHost,"getServerTime","time="+showTimeHtml,function(result){
 					if(result.code == 10000){
 						tmp = result.num;
 					}
@@ -117,6 +162,136 @@ yg.Bottom = {
 					};
 					setInterval(timeFun,1000);
 				});
+			}
+		},
+		setSrcFun: function() {
+			var appendVersion = function(d) {
+				var date = new Date();
+				d.attr("src", d.attr("data") + "?v=" + GetVerNum()).removeAttr("id").removeAttr("data")
+			};
+			var ele = $("#pageJS", "head");
+			if (ele.length > 0) {
+				appendVersion(ele);
+			} else {
+				ele = $("#pageJS", "body");
+				if (ele.length > 0) {
+					appendVersion(ele);
+				}
+			}
+		},
+		getUserCartNum: function() {
+			var bottomObj = this;
+			var currentUrl = location.href.toLowerCase();
+			var isAuth = currentUrl.indexOf("member.1yyg.com") > -1 && currentUrl.indexOf("referauth.do") == -1 && currentUrl.indexOf("referrals.do") == -1 ? true: false;
+			if (yg.Bottom.RightTool.RightCartObj.length > 0 || yg.Bottom.Header.HeadCartNumObj.length > 0 || isAuth) {
+				var tmpCartUrl = [cartUrl];
+				var f = true;
+				for (var c = 0; c < tmpCartUrl.length; c++) {
+					if (location.href.toLowerCase().indexOf(tmpCartUrl[c]) > -1) {
+						f = false;
+						break
+					}
+				}
+				if (f) {
+					bottomObj.getCartNumFun()
+				}
+			}
+		},
+		getUserTotalBuyCount: function() {
+			var totalBuy = $("#ulHTotalBuy");
+			var fundTotal = $("#spFundTotal");
+			var tmp = 0;
+			var onLine = 2000;
+			var b = false;
+			var getServerBuyTotalCount = function() {
+				getYYData(apiUrl, "totalBuyCount", "", function(o) {
+					if (o.state == 0) {
+						fundTotal.html("￥" + o.fundTotal);
+						var count = o.count;
+						if (tmp != count) {
+							if (!b) {
+								var countStr = count.toString().length;
+								if (countStr > 10) {
+									var strHtml = "";
+									for (var n = 0; n < countStr - 10; n++) {
+										strHtml += '<li class="num" type="add"><cite style="top: -243px;">';
+										for (var p = 9; p >= 0; p--) {
+											strHtml += '<em t="' + p + '">' + p + "</em>"
+										}
+										strHtml += "</cite><i></i></li>";
+										tmp = "0" + tmp.toString()
+									}
+									totalBuy.children("li").eq(0).after(strHtml);
+									b = true
+								}
+							}
+							if (tmp == 0) {
+								tmp = count;
+								fundTotal.children("li.num").each(function() {
+									var cithStr = '<cite style="top:-243px;">';
+									for (var t = 9; t >= 0; t--) {
+										cithStr += '<em t="' + t + '">' + t + "</em>"
+									}
+									cithStr += "</cite><i></i>";
+									$(this).html(cithStr);
+								});
+								var countStrTmp = count.toString();
+								var countStrTmpLen = countStrTmp.length;
+								var arrCountStrTmp = countStrTmp.split("");
+								fundTotal.find("cite").each(function(w, j) {
+									var citeObj = $(this);
+									var t = parseInt(arrCountStrTmp[w]);
+									if (! (/^\d+$/.test(t))) {
+										t = 0;
+									}
+									citeObj.animate({
+										top: "-" + (27 * (9 - t)) + "px"
+									},
+									{
+										queue: false,
+										duration: e,
+										complete: function() {}
+									})
+								})
+							} else {
+								var arrTmp = tmp.toString().split("");
+								var arrCountStrTmp = count.toString().split("");
+								tmp = count;
+								fundTotal.find("cite").each(function(z, w) {
+									var A = 0;
+									var y = parseInt(arrTmp[z]);
+									if (arrTmp[z] <= arrCountStrTmp[z]) {
+										A = parseInt(arrCountStrTmp[z]) - parseInt(arrTmp[z]);
+									} else {
+										A = 10 + parseInt(arrCountStrTmp[z]) - parseInt(arrTmp[z]);
+									}
+									if (A != 0) {
+										var B = $(this).children('em[t="' + y + '"]');
+										var u = B.nextAll();
+										for (var x = u.length - 1; x > -1; x--) {
+											$(this).prepend($(u[x]))
+										}
+										var t = -(243 - A * 27);
+										$(this).css({
+											top: "-243px"
+										}).animate({
+											top: t
+										},
+										{
+											queue: false,
+											duration: e,
+											complete: function() {}
+										})
+									}
+								})
+							}
+						}
+					}
+				});
+				setTimeout(getServerBuyTotalCount, 5000)
+			};
+			if (totalBuy.length > 0 || fundTotal.length > 0) {
+				getServerBuyTotalCount();
 			}
 		},
 		disablePassword:function(){
@@ -153,8 +328,8 @@ yg.Bottom = {
 		loginInfoProcess: function() {
 			var obj = this;
 			var browserLoca = location.href.toLowerCase();
-			var isMemerber = a.indexOf("member.1yyg.com") > -1 && a.indexOf("referauth.do") == -1 && a.indexOf("referrals.do") == -1 ? true: false;
-			var isUyyyg = a.indexOf("u.yyyg.com") > -1 ? true: false;
+			var isMemerber = browserLoca.indexOf("member.1yyg.com") > -1 && browserLoca.indexOf("referauth.do") == -1 && browserLoca.indexOf("referrals.do") == -1 ? true: false;
+			var isUyyyg = browserLoca.indexOf("u.yyyg.com") > -1 ? true: false;
 			if (isMemerber || isUyyyg) {
 				obj.liMsgObj.remove();
 				obj.liMsgObj.length = 0;
@@ -167,25 +342,25 @@ yg.Bottom = {
 			}
 			if (!isMemerber) {
 				$("#liCCTV").show().prev().show();
-				if (!b) {
-					$("#liCollect").addClass("f-collect")
+				if (!isUyyyg) {
+					$("#liCollect").addClass("f-collect");
 				}
 			}
 			_GetUserLoginInfo = function() {
-				if (c.TopRightBox.length > 0) {
-					GetJPData(apiUrl, "logininfo", "",
+				if (obj.TopRightBox.length > 0) {
+					getYYData(apiUrl, "logininfo", "",
 					function(e) {
-						c.TopRightBox.children('li[type="nologin"]').remove();
+						obj.TopRightBox.children('li[type="nologin"]').remove();
 						if (e.code == 1) {
-							c.TopRightBox.prepend('<li><div class="u-menu-hd u-menu-login"><a href="http://member.1yyg.com/" title="' + e.username + '" class="blue"><span class="fl"><img src="http://faceimg.1yyg.com/userface/30/' + e.userPhoto + '"><s class="transparent-png"></s></span>' + e.username + '</a><a href="' + passportUrl + '/Logout.html" title="退出">[退出]</a></div></li><li class="f-gap"><s></s></li>');
-							c.liMsgObj.attr("show", "1").show().next("li.f-gap").show()
+							obj.TopRightBox.prepend('<li><div class="u-menu-hd u-menu-login"><a href="http://member.1yyg.com/" title="' + e.username + '" class="blue"><span class="fl"><img src="http://faceimg.1yyg.com/userface/30/' + e.userPhoto + '"><s class="transparent-png"></s></span>' + e.username + '</a><a href="' + passportUrl + '/Logout.html" title="退出">[退出]</a></div></li><li class="f-gap"><s></s></li>');
+							obj.liMsgObj.attr("show", "1").show().next("li.f-gap").show()
 						} else {
 							if (e.code == 0) {
-								c.TopRightBox.prepend('<li type="nologin"><div class="u-menu-hd"><a href="' + passportUrl + '/login.html?forward=rego" title="登录">登录</a></div></li><li type="nologin" class="f-gap"><s></s></li><li type="nologin"><div class="u-menu-hd"><a href="' + passportUrl + '/register.html?forward=rego" title="注册">注册</a></div></li><li class="f-gap"><s></s></li>');
-								c.liMsgObj.attr("show", "-1").hide()
+								obj.TopRightBox.prepend('<li type="nologin"><div class="u-menu-hd"><a href="' + passportUrl + '/login.html?forward=rego" title="登录">登录</a></div></li><li type="nologin" class="f-gap"><s></s></li><li type="nologin"><div class="u-menu-hd"><a href="' + passportUrl + '/register.html?forward=rego" title="注册">注册</a></div></li><li class="f-gap"><s></s></li>');
+								obj.liMsgObj.attr("show", "-1").hide()
 							}
 						}
-						c.loadingMsgFun()
+						obj.loadingMsgFun()
 					})
 				}
 			};
@@ -438,7 +613,7 @@ yg.Bottom = {
 							jqObj.find(".u-activate").stop().animate({
 								width: "0px"
 							}, 400, function() {
-								b.removeClass("toolbar-hover")
+								jqObj.removeClass("toolbar-hover")
 							})
 						} else {
 							if (jqObj.hasClass("f-weixin")) {
@@ -474,7 +649,7 @@ yg.Bottom = {
 					}
 				};
 				var miniToolFun = function() {
-					if (obj.isMiniTool) {
+					if(obj.isMiniTool) {
 						animaFade();
 						$(document).on("click", "li.f-back-to", function() {
 							$("body, html").animate({
@@ -636,7 +811,7 @@ yg.Bottom = {
 			}
 			var urlParam = "name=" + cartLoginNameVal + "&pwd=" + yg.Bottom.Util.escape2(cartLoginPassVal) + "&auth=" + obj.vcCodeAuthStr;
 			miniLoginBtn.addClass("letter").val("正在登录...");
-			GetJPData("https://passport.1yyg.com", "userlogin", urlParam, function(h) {
+			getYYData("https://passport.1yyg.com", "userlogin", urlParam, function(h) {
 				var state = h.state;
 				if (state != 0) {
 					miniLoginBtn.removeClass("letter").val("登录")
@@ -653,39 +828,39 @@ yg.Bottom = {
 									expires: c.VC_CODE_EXPIRE,
 									domain: "1yyg.com"
 								});
-								a.val("").focus();
-								c.showMiniLoginErrorMsg(a, "登录密码错误，请重新输入")
+								cartLoginPass.val("").focus();
+								obj.showMiniLoginErrorMsg(cartLoginPass, "登录密码错误，请重新输入")
 							} else {
 								if (h.num == -6) {
-									c.showMiniLoginErrorMsg(null, "验证码错误，请重新验证！")
+									obj.showMiniLoginErrorMsg(null, "验证码错误，请重新验证！")
 								} else {
 									if (h.num == -7) {
-										c.showMiniLoginErrorMsg(null, "请拖动滑块完成验证！")
+										obj.showMiniLoginErrorMsg(null, "请拖动滑块完成验证！")
 									}
 								}
 							}
 						} else {
-							a.val("").focus();
-							c.showMiniLoginErrorMsg(a, "登录密码错误，请重新输入")
+							cartLoginPass.val("").focus();
+							obj.showMiniLoginErrorMsg(cartLoginPass, "登录密码错误，请重新输入")
 						}
 					} else {
 						if (i == 1 && h.num == -2) {
-							c.showMiniLoginErrorMsg(e, "此账号不存在，请重新输入")
+							obj.showMiniLoginErrorMsg(cartLoginUname, "此账号不存在，请重新输入")
 						} else {
 							if (i == 1 && h.num == -3) {
-								c.showMiniLoginErrorMsg(e, "此账号已被冻结，请与客服联系！")
+								obj.showMiniLoginErrorMsg(cartLoginUname, "此账号已被冻结，请与客服联系！")
 							} else {
 								if (i == 1 && h.num == -4) {
-									c.showMiniLoginErrorMsg(e, "此账号未激活，请与客服联系！")
+									obj.showMiniLoginErrorMsg(cartLoginUname, "此账号未激活，请与客服联系！")
 								} else {
 									if (i == 1 && h.num == -5) {
-										c.showMiniLoginErrorMsg(null, "密码被系统锁定！")
+										obj.showMiniLoginErrorMsg(null, "密码被系统锁定！")
 									} else {
 										if (i == 3 && h.num == 1) {
-											c.showMiniLoginErrorMsg(null, "失败次数超限，被冻结5分钟！")
+											obj.showMiniLoginErrorMsg(null, "失败次数超限，被冻结5分钟！")
 										} else {
 											if (i == 3 && h.num == 2) {
-												c.showMiniLoginErrorMsg(null, "失败次数超限，IP被冻结！")
+												obj.showMiniLoginErrorMsg(null, "失败次数超限，IP被冻结！")
 											}
 										}
 									}
@@ -694,8 +869,525 @@ yg.Bottom = {
 						}
 					}
 				}
-				c.isFastLoginSubmiting = false
+				obj.isFastLoginSubmiting = false
 			})
 		},
+		switchMiniLogin: function() {
+			var miniLoginObj = this;
+			var rightLoginObj = miniLoginObj.RightLoginObj;
+			var rightTitle = rightLoginObj.children(".cartLogin-title,.cartLogin-con");
+			var wxLoginCon = rightLoginObj.children(".wxLogin-con");
+			rightLoginObj.on("click", ".z-clump-icon.wx-login", function() {
+				rightTitle.hide();
+				wxLoginCon.show()
+			});
+			rightLoginObj.on("click", ".wxLogin-con a", function() {
+				rightTitle.show();
+				wxLoginCon.hide()
+			});
+			$("#btnQQLogin").click(function() {
+				$.cookie("qFromUrl", $("#hidFromUrl").val());
+				window.open("https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=100511748&redirect_uri=" + escape("https://passport.1yyg.com/qcback.html") + "&state=qq&scope=all");
+				return false
+			});
+			rightLoginObj.on("click", ".delete-close", function() {
+				miniLoginObj.showMiniLogin(false);
+			});
+			$("#btnWXLogin").click(function() {
+				$.cookie("qFromUrl", escape("http://www.1yyg.com"));
+				if (_IsIE && _IeVersion == 6) {
+					window.open("https://open.weixin.qq.com/connect/qrconnect?appid=wxe61d43f2e02a5b10&redirect_uri=" + escape("http://www.1yyg.com") + "&response_type=code&scope=snsapi_login&state=wx#wechat_redirect")
+				} else {
+					var wxLoginFun = function() {
+						if ($("#wxLoginImgContainer").children().length == 0) {
+							var f = new WxLogin({
+								id: "wxLoginImgContainer",
+								appid: "wxe61d43f2e02a5b10",
+								scope: "snsapi_login",
+								redirect_uri: escape("https://passport.1yyg.com/qcback.html"),
+								state: "wx",
+								style: "",
+								href: "https://skin.1yyg.com/css/minilayout.css?date=0617"
+							})
+						}
+						if (obj.isWxLoginStart) {
+							return
+						}
+						obj.isWxLoginStart = true
+					};
+					if (obj.isWxLoginJsLoaded) {
+						wxLoginFun()
+					} else {
+						Base.getScript("https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js",
+						function() {
+							wxLoginFun();
+							obj.isWxLoginJsLoaded = true;
+						})
+					}
+				}
+			})
+		},
+		minLoginEventReg:function(){
+			var obj = this;
+			var userName = this.RightLoginObj.find("#username");
+			var pass = this.RightLoginObj.find("#password");
+			userName.on("focus", function(d) {
+				stopBubble(d);
+				$(this).parent().parent().addClass("focus");
+			}).on("blur", function(d) {
+				stopBubble(d);
+				$(this).parent().parent().removeClass("focus")
+			}).on("keydown", function(d) {
+				stopBubble(d);
+				a.hideMiniLoginErrorMsg()
+			});
+			pass.on("focus", function(d) {
+				stopBubble(d);
+				$(this).parent().parent().addClass("focus")
+			}).on("blur", function(d) {
+				stopBubble(d);
+				$(this).parent().parent().removeClass("focus")
+			}).on("keydown", function(d) {
+				stopBubble(d);
+				obj.hideMiniLoginErrorMsg()
+			});
+			this.RightLoginObj.on("click", "#miniLoginBtn", function(d) {
+				stopBubble(d);
+				obj.submitMiniLogin()
+			});
+			$("body").click(function() {
+				obj.isHideCartPanelActive = true;
+				obj.hidePanelByIndex(0)
+			}).find("#rightTool").click(function(d) {
+				stopBubble(d)
+			});
+			obj.isLoginPanelEventReg = true
+		},
+		isVcCodeValidated: true,
+		isAdvancedVcCode: false,
+		isDragEnabled: true,
+		canvasWidth: 0,
+		canvasHeight: 0,
+		vcCodeAuthStr: "",
+		showVcCode: function() {
+			$("#divRTLogin").height(284);
+			$("#vcCodeContainerLi").show()
+		},
+		hideVcCode: function() {
+			$("#vcCodeContainerLi").hide();
+			$("#divRTLogin").height(229)
+		},
+		getVcCode: function() {
+			var obj = this;
+			obj.isVcCodeValidated = false;
+			var divRtLogin = $("#divRTLogin");
+			var userName = $("#username", divRtLogin).val();
+			divRtLogin.find("#canvasContainer").parent().show();
+			obj.$vcCanvas = $("#vcCanvas");
+			obj.$vcCanvas.css({
+				width: b.canvasWidth + "px"
+			});
+			obj.$dragBtn = $("#dragBtn");
+			obj.$dragBtnLeft = $("#dragBtnLeft");
+			obj.$dragBtnContainer = $("#dragBtnContainer");
+			obj.$canvasContainer = $("#canvasContainer");
+			obj.$vcCanvas.hide();
+			getYYData("https://passport.1yyg.com", "getVcChar", "key=" + userName, function(d) {
+				if (d.state == 1) {
+					obj.resetVcCode();
+					obj.showMiniLoginErrorMsg(null, "获取验证码太频繁，请稍后再试");
+					return false
+				} else {
+					if (d.state == "0") {
+						var str = d.str;
+						$("#selectedChar").text(str);
+						obj.$dragBtnContainer.children(".vc-slideBtnLeft").find("span:eq(1)").hide();
+						obj.$dragBtnContainer.children(".vc-slideBtnLeft").find("span:eq(0),a").show();
+						obj.$canvasContainer.parent().show();
+						obj.$canvasContainer.css("height", b.canvasHeight + "px");
+						obj.$vcCanvas.attr("src", "https://passport.1yyg.com/api/GetVcImg.html?" + obj.getVcImgParam(e)).show()
+					}
+				}
+			})
+		},
+		resetVcCode: function() {
+			var obj = this;
+			obj.$dragBtn = $("#dragBtn");
+			obj.$dragBtnLeft = $("#dragBtnLeft");
+			obj.$dragBtnContainer = $("#dragBtnContainer");
+			obj.$canvasContainer = $("#canvasContainer");
+			obj.$dragBtnLeft.css("width", "0");
+			obj.$dragBtn.animate({
+				left: "0"
+			});
+			obj.$dragBtnContainer.children(".vc-slide-text").show();
+			obj.$dragBtnContainer.children(".vc-slideBtnLeft").find("span:eq(1)").hide();
+			obj.$dragBtnContainer.children(".vc-slideBtnLeft").find("span:eq(0),a").hide();
+			obj.$dragBtn.children("i").removeClass("ready-status vali-status wrong-status right-status").addClass("ready-status");
+			obj.$canvasContainer.parent().hide();
+			obj.isDragEnabled = true;
+			obj.isVcCodeValidated = false
+		},
+		getVcImgParam: function(b) {
+			var obj = this;
+			var imgParam = "width=" + obj.canvasWidth + "&height=" + c.canvasHeight + "&selectedChar=" + b;
+			return imgParam
+		},
+		vcCodeEvtReg: function() {
+			var obj = this;
+			var divRtLogin = $("#divRTLogin");
+			var dragBtn = $("#dragBtn", divRtLogin);
+			var dragBtnLeft = $("#dragBtnLeft", divRtLogin);
+			var dragBtnContainer = $("#dragBtnContainer", divRtLogin);
+			var canvasContainer = $("#canvasContainer", divRtLogin);
+			var vcCanvas = $("#vcCanvas", divRtLogin);
+			obj.canvasWidth = 223;
+			obj.canvasHeight = 103;
+			var outerWidth = h.outerWidth();
+			dragBtn.draggable({
+				containment: "#dragBtnContainer",
+				start: function() {
+					if (obj.isDragEnabled === false) {
+						return false
+					}
+					var cartLoginUName = obj.RightLoginObj.find(".cartLogin-con").find("#username");
+					var cartLoginUNameVal = cartLoginUName.val();
+					if (yg.Bottom.Util.ckMobile(cartLoginUNameVal) === false && yg.Bottom.Util.ckEmail(cartLoginUNameVal) === false) {
+						obj.showMiniLoginErrorMsg(cartLoginUName, "请输入正确的手机号或邮箱地址");
+						return false
+					}
+					obj.hideMiniLoginErrorMsg()
+				},
+				drag: function(l, m) {
+					var widthTmp = m.position.left;
+					dragBtnLeft.css("width", widthTmp + "px")
+				},
+				stop: function(l, n) {
+					var widthTmp = n.position.left;
+					var outerWidthTmp = dragBtnContainer.outerWidth();
+					if (widthTmp < outerWidthTmp - outerWidth) {
+						dragBtn.animate({
+							left: "0"
+						});
+						dragBtnLeft.animate({
+							width: "0"
+						})
+					} else {
+						var rightLoginUserName = obj.RightLoginObj.find("#username");
+						var rightLoginUserNameVal = rightLoginUserName.val();
+						getYYData("https://passport.1yyg.com", "getVcChar", "key=" + rightLoginUserNameVal, function(q) {
+							if (q.state == 1) {
+								obj.resetVcCode();
+								obj.showMiniLoginErrorMsg(null, "获取验证码太频繁，请稍后再试");
+								return false
+							} else {
+								if (q.state == 0) {
+									var str = q.str;
+									$("#selectedChar").text(str);
+									dragBtnContainer.children(".vc-slide-text").hide();
+									dragBtnContainer.children(".vc-slideBtnLeft").find("span:eq(1)").hide();
+									dragBtnContainer.children(".vc-slideBtnLeft").find("span:eq(0),a").show();
+									canvasContainer.parent().show();
+									canvasContainer.css("height", f.canvasHeight + "px");
+									dragBtnLeft.css("width", widthTmp + "px");
+									dragBtn.css({
+										"float": "left",
+										left: widthTmp + "px"
+									});
+									dragBtn.children("i").removeClass("ready-status,vali-status,wrong-status,right-status").addClass("vali-status");
+									vcCanvas.attr("src", "https://passport.1yyg.com/api/GetVcImg.html?" + f.getVcImgParam(r));
+									obj.isDragEnabled = false
+								}
+							}
+						})
+					}
+				}
+			});
+			var refreshVcCode = $("#refreshVcCode");
+			var tmp = null;
+			refreshVcCode.click(function() {
+				if (tmp != null) {
+					console.log("too fast！！");
+					return
+				}
+				tmp = setTimeout(function() {
+					b = null
+				}, 200);
+				dragBtn.children("i").attr("class", "passport-icon ready-status vali-status");
+				obj.getVcCode()
+			});
+			vcCanvas.click(function(m) {
+				var vcCanvasLeft = vcCanvas.offset().left;
+				var vcCanvasTop = d.offset().top;
+				var residueWidth = m.pageX - vcCanvasLeft;
+				var residueHeight = m.pageY - vcCanvasTop;
+				getYYData("https://passport.1yyg.com", "VcCompare", "x=" + residueWidth + "&y=" + residueHeight, function(p) {
+					if (p.state == 1) {
+						if (p.num == 1) {
+							dragBtn.children("i").attr("class", "passport-icon wrong-status");
+							obj.getVcCode();
+							return false
+						} else {
+							obj.resetVcCode();
+							obj.showMiniLoginErrorMsg(null, "获取验证码太频繁，请稍后再试");
+							return false
+						}
+					} else {
+						if (p.state == 0) {
+							obj.isVcCodeValidated = true;
+							obj.isDragEnabled = false;
+							dragBtnLeft.find("span:eq(0),a").hide();
+							dragBtnLeft.find("span:eq(1)").show();
+							dragBtn.children("i").attr("class", "passport-icon right-status");
+							canvasContainer.parent().hide();
+							obj.vcCodeAuthStr = p.str
+						}
+					}
+				})
+			})
+		},
+		showPanelByIndex: function(b) {
+			var obj = this;
+			if (b == 0) {
+				obj.RightCartMainObj.css({
+					display: "block",
+					height: "100%"
+				}).animate({
+					right: "40px"
+				}, 400, function() {
+					obj.RightCartMainObj.attr("isShowed", "1");
+					obj.RightCartObj.addClass("toolbar-hover")
+				})
+			}
+		},
+		hidePanelByIndex: function(b) {
+			var obj = this;
+			if (b == 0) {
+				if (obj.isLoginPanelShow) {
+					obj.showMiniLogin(false)
+				}
+				obj.RightCartMainObj.attr("isShowed", "0");
+				obj.RightCartMainObj.stop().animate({
+					right: "-240px"
+				}, 400, function() {
+					if (obj.isHideCartPanelActive) {
+						obj.RightCartObj.removeClass("toolbar-hover");
+						if (obj.RightCartNumObj.html() == "" || obj.RightCartNumObj.html() == "0") {
+							obj.RightCartObj.find("b.curr-arrow").hide()
+						}
+					}
+				})
+			}
+		},
+		rightToolEvent: function() {
+			var obj = this;
+			var cartPanlTimeOut = null;
+			var cartMainTimeOut = null;
+			var isLoad = false;
+			obj.RightCartObj.on("mouseenter", function() {
+				if (cartPanlTimeOut != null) {
+					clearTimeout(cartPanlTimeOut)
+				}
+				if (cartMainTimeOut != null) {
+					clearTimeout(cartMainTimeOut)
+				}
+				var showRightCartMainFun = function() {
+					if (obj.RightCartMainObj.attr("isShowed") == "1") {
+						return;
+					}
+					var rightCartNumHtml = obj.RightCartNumObj.html();
+					if (rightCartNumHtml == "" || rightCartNumHtml == "0") {
+						return;
+					}
+					obj.showCartLoadding();
+					obj.RightCartMainObj.find(".cartEmpty").hide();
+					obj.showPanelByIndex(0);
+					if (!isLoad) {
+						Base.getScript("http://skin.1yyg.com/js/cartTool.js?date=160725",function() {
+							isLoad = true;
+							yg.miniCartTool.init(obj.RightCartMainObj);
+						})
+					} else {
+						yg.miniCartTool.init(obj.RightCartMainObj)
+					}
+				};
+				var isHideCartFun = function() {
+					obj.isHideCartPanelActive = false;
+					showRightCartMainFun()
+				};
+				if ($(window).width() < obj.thresholdwinWidth) {
+					obj.RightToolObj.stop().animate({
+						right: 0
+					}, 400, function() {
+						isHideCartFun();
+					})
+				} else {
+					isHideCartFun();
+				}
+			}).on("mouseleave", function() {
+				if (obj.isLoginPanelShow) {
+					return
+				}
+				obj.isHideCartPanelActive = true;
+				if (obj.RightCartMainObj.attr("isShowed") == "1") {
+					if (cartPanlTimeOut != null) {
+						clearTimeout(cartPanlTimeOut)
+					}
+					cartPanlTimeOut = setTimeout(function() {
+						obj.hidePanelByIndex(0)
+					}, 1000)
+				}
+			});
+			obj.RightCartMainObj.on("mouseenter", function() {
+				obj.isHideCartPanelActive = false;
+				if (cartPanlTimeOut != null) {
+					clearTimeout(cartPanlTimeOut);
+				}
+				if (cartMainTimeOut != null) {
+					clearTimeout(cartMainTimeOut);
+				}
+			}).on("mouseleave", function() {
+				if (obj.isLoginPanelShow) {
+					return
+				}
+				obj.isHideCartPanelActive = true;
+				if (obj.RightCartMainObj.attr("isShowed") == "1") {
+					if (cartPanlTimeOut != null) {
+						clearTimeout(cartPanlTimeOut);
+					}
+					cartPanlTimeOut = setTimeout(function() {
+						obj.hidePanelByIndex(0)
+					}, 1000)
+				}
+			});
+			obj.RightToolObj.on("mouseenter", function() {
+				if (cartMainTimeOut != null) {
+					clearTimeout(cartMainTimeOut);
+				}
+			}).on("mouseleave", function() {
+				if ($(window).width() < obj.thresholdwinWidth) {
+					if (cartMainTimeOut != null) {
+						clearTimeout(cartMainTimeOut);
+					}
+					cartMainTimeOut = setTimeout(function() {
+						obj.switchRightTool(false)
+					}, 1000);
+				}
+			});
+			obj.RightLoginObj.on("mouseenter", function() {
+				if (cartPanlTimeOut != null) {
+					clearTimeout(cartPanlTimeOut);
+				}
+				if (cartMainTimeOut != null) {
+					clearTimeout(cartMainTimeOut);
+				}
+			}).on("mouseleave", function() {
+				if (obj.isLoginPanelShow) {
+					return
+				}
+				obj.isHideCartPanelActive = true;
+				if (obj.RightCartMainObj.attr("isShowed") == "1") {
+					if (cartPanlTimeOut != null) {
+						clearTimeout(cartPanlTimeOut);
+					}
+					cartPanlTimeOut = setTimeout(function() {
+						e.hidePanelByIndex(0);
+					}, 1000)
+				}
+			})
+		},
+		switchRightTool: function(e) {
+			var obj = this;
+			if (obj.isMiniTool) {
+				return;
+			}
+			var winWidth = $(window).width();
+			var winHeight = $(window).height() < 550 ? 550 : $(window).height();
+			obj.RightToolObj.children("div.g-status-standard").height(winHeight);
+			if (winWidth < obj.thresholdwinWidth) {
+				obj.RightCartObj.attr("style", "position:fixed;right:0;background:#5c5550;");
+				obj.RightClientObj.removeClass("toolbar-hover");
+				obj.isLoginPanelShow = false;
+				obj.RightLoginObj.hide();
+				obj.RightCartMainObj.attr("isShowed", "0").css({
+					right: "-240px"
+				});
+				obj.RightCartObj.removeClass("toolbar-hover");
+				obj.RightToolObj.css("right", "0").stop().animate({
+					right: -40
+				}, 500).show();
+			} else {
+				obj.RightCartObj.removeAttr("style");
+				obj.RightToolObj.show().stop().animate({
+					right: 0
+				}, 1000, function() {});
+				if (e) {
+					if (winWidth > obj.thresholdwinWidth) {
+						if ($.cookie("_AppDownLoadShow") != "1") {
+							$.cookie("_AppDownLoadShow", "1", {
+								domain: "yyyg.com"
+							});
+							obj.RightClientObj.addClass("toolbar-hover").find(".u-activate").stop().animate({
+								width: "143px"
+							}, 400, function() {});
+							setTimeout(function() {
+								obj.RightClientObj.find(".u-activate").stop().animate({
+									width: "0px"
+								}, 400, function() {
+									obj.RightClientObj.removeClass("toolbar-hover");
+								})
+							}, 10000);
+						}
+					} else {
+						obj.RightClientObj.find(".u-activate").stop().animate({
+							width: "0px"
+						}, 400, function() {
+							obj.RightClientObj.removeClass("toolbar-hover");
+						})
+					}
+				}
+				if ($(window).scrollTop() > 0) {
+					obj.backTopObj.show();
+				} else {
+					obj.backTopObj.hide();
+				}
+			}
+			var residueHeiht = winHeight - obj.thresholdwinHeight;
+			if (residueHeiht < 0) {
+				obj.RightToolObj.find(".u-sentence").height(200 + residueHeiht).children("span").css("background-image", "none")
+			} else {
+				obj.RightToolObj.find(".u-sentence").height(200).children("span").css("background-image", "url(http://skin.1yyg.com/images/sentence.gif?v=0527)")
+			}
+		}
+	},
+	BindEvents: function() {
+		var comm = yg.Bottom.common;
+		var top = yg.Bottom.Top;
+		var header = yg.Bottom.Header;
+		var menu = yg.Bottom.Menu;
+		var rightTool = yg.Bottom.RightTool;
+		comm.setSrcFun();
+		comm.broswerProcess();
+//		comm.getUserTotalBuyCount();
+//		comm.getUserCartNum();
+//		comm.loadQQService();
+//		comm.customerService();
+		comm.disablePassword();
+//		comm.serverTimeProcess();
+		top.addFavorite();
+//		top.loginInfoProcess();
+		top.bindTopEvent();
+		header.search();
+		menu.goodsSort();
+		rightTool.initFloatTools();
+		rightTool.sthMouseOver();
+		rightTool.switchMiniLogin();
+		rightTool.rightToolEvent();
+		loadImgFun()
 	}
-}
+};
+$(function() {
+	Base.getScript("common.js",function(){
+		Base.getScript("cart_common.js",yg.Bottom.BindEvents);
+	});
+});

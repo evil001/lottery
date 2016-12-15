@@ -1,5 +1,8 @@
 @charset "utf-8";
-	.textindent {
+.z-icons {
+	background:url(http://skin.1yyg.com/help/Images/help-new.png?v=161208) no-repeat;
+}
+.textindent {
 	text-indent:2em;
 }
 .help-main {
@@ -311,7 +314,7 @@
 	margin-right:10px;
 }
 .help-suggestion dl div.ok {
-	background:url(../../img/arrow_button.png) no-repeat -170px -115px;
+	background:url(../images/arrow_button.png) no-repeat -170px -115px;
 }
 .help-suggestion dl div.tips_txt {
 	float:left;
@@ -325,7 +328,7 @@
 	height:35px;
 	line-height:35px;
 	color:#f60;
-	background:url(../../img/arrow_button.png) no-repeat -170px -74px;
+	background:url(../images/arrow_button.png) no-repeat -170px -74px;
 	padding:0 0 0 20px;
 	width:275px;
 	float:left;
@@ -423,7 +426,7 @@
 	cursor:pointer;
 	color:#fff;
 	font-size:12px;
-	background:url(../../img/arrow_button.png) 0 -612px;
+	background:url(../images/arrow_button.png) 0 -612px;
 }
 #dZcontent {
 	display:block;
@@ -461,6 +464,248 @@
 	float:left;
 	line-height:37px;
 }
+.problem-menu {
+	padding-top:10px;
+}
+.problem-menu li {
+	float:left;
+	padding:0 16px;
+}
+.problem-menu li a {
+	display:block;
+	width:117px;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	border:1px solid #ddd;
+	color:#666;
+	font-size:14px;
+	position:relative;
+}
+.problem-menu li a:hover,.problem-menu li.f-curr a {
+	color:#f60;
+	border:1px solid #f60;
+}
+.problem-menu li i {
+	display:block;
+	width:20px;
+	height:13px;
+	background-position:-23px -49px;
+	position:absolute;
+	left:0;
+	bottom:0;
+	display:none;
+}
+.problem-menu li.f-curr i {
+	display:block;
+}
+.problem-text {
+	font-size:14px;
+	padding-top:18px;
+	padding-left:16px;
+	padding-right:15px;
+	line-height:30px;
+}
+.problem-text h3 {
+	font-weight:bold;
+}
+.problem-text p {
+	text-indent:2em;
+	margin-bottom:32px;
+}
+.problem-text p.clear-mar {
+	margin-bottom:0;
+}
+.problem-text .rule-con {
+	padding:0 20px 0 28px;
+	margin-bottom:25px;
+}
+.problem-text .rule-con span {
+	display:block;
+	margin-bottom:30px;
+	padding-left:22px;
+}
+.g-suggestions {
+	font-size:14px;
+}
+.g-suggestions p {
+	text-indent:2em;
+	font-size:14px;
+	line-height:30px;
+	padding-top:8px;
+	padding-left:15px;
+}
+.complaints-form {
+	padding-top:30px;
+	padding-left:50px;
+}
+.complaints-form li {
+	float:left;
+	width:100%;
+	margin:10px 0;
+}
+.complaints-form label {
+	font-size:14px;
+}
+.complaints-form label.fl {
+	margin-right:12px;
+}
+.complaints-form li.m-theme {
+	height:26px;
+	line-height:26px;
+}
+.m-theme label,.f-opt {
+	height:26px;
+	line-height:26px;
+}
+.m-theme label em {
+	padding-left:28px;
+}
+.f-opt input {
+	display:inline-block;
+	width:15px;
+	height:15px;
+	background-position:-74px -49px;
+	border:0 none;
+}
+.f-opt label {
+	display:inline-block;
+	height:26px;
+	line-height:26px;
+	vertical-align:middle;
+	margin-top:-3px;
+	padding-left:20px;
+	position:relative;
+	cursor:pointer;
+	font-size:14px;
+	*display:inline;
+	margin-right:30px;
+}
+.f-opt label i {
+	display:block;
+	width:13px;
+	height:13px;
+	border:1px solid #ddd;
+	position:absolute;
+	top:6px;
+	*top:4px;
+	left:0;
+	border-radius:50%;
+	overflow:hidden;
+}
+.f-opt label.current i {
+	border-color:#f60;
+	background-position:-46px -50px;
+}
+.complaints-form li.m-feedback-content {
+	width:615px;
+	height:300px;
+	position:relative;
+	margin-bottom:5px;
+}
+.m-feedback-content textarea {
+	width:519px;
+	height:259px;
+	padding:5px;
+	border:1px solid #e4e4e4;
+	outline:none;
+	resize:none;
+	text-align:left;
+	line-height:20px;
+	color:#333;
+}
+.m-feedback-content textarea:focus {
+	border-color:#ccc;
+}
+.m-feedback-content p {
+	color:#bbb;
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+.complaints-form li.m-contact-information {
+	margin-top:0;
+}
+.m-contact-information label {
+	height:36px;
+	line-height:36px;
+}
+.m-contact-information input {
+	width:286px;
+	height:34px;
+	line-height:34px;
+	border-radius:2px;
+	padding:0 5px;
+	border:1px solid #e4e4e4;
+	outline:none;
+}
+.m-contact-information input:focus {
+	border-color:#ccc;
+}
+.m-verification-code label em {
+	padding:0 7px;
+}
+.complaints-form .m-verification-code {
+	height:67px;
+	position:relative;
+}
+.complaints-form .m-verification-code label {
+	height:36px;
+	line-height:36px;
+}
+.complaints-form .vc-wrapper {
+	width:298px;
+	height:36px;
+}
+div.pageDialogMain .mAltGreen {
+	width:280px;
+	height:50px;
+	line-height:50px;
+	font-size:14px;
+	text-align:center;
+}
+div.pageDialogMain .mAltGreen s {
+	background-position:-44px -290px;
+	display:inline-block;
+	width:16px;
+	height:16px;
+	margin-right:3px;
+	position:relative;
+	top:2px;
+}
+.complaints-form span.orange {
+	display:block;
+	position:absolute;
+	bottom:6px;
+	left:84px;
+}
+.complaints-form span.orange b {
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background-position:-38px -539px;
+	vertical-align:middle;
+	margin-right:3px;
+	position:relative;
+	top:-1px;
+	*top:1px;
+}
+.complaints-form input.orange_btn {
+	display:block;
+	width:126px;
+	height:32px;
+	line-height:32px;
+	border:0 none;
+	margin-left:84px;
+	font-size:14px;
+}
+.z-un-submit {
+	background:#ffa664!important;
+	cursor:default;
+}
+.z-un-submit:hover {
+	background:#ffa664;
+}
 @media (max-width:1190px) {
 	.help-left-part {
 	width:198px;
@@ -487,6 +732,12 @@
 .jobs-detailed li p {
 	width:700px;
 }
+.problem-menu li {
+	padding:0 10px;
+}
+.problem-menu li a {
+	width:102px;
+}
 }body.f-width-change .help-left-part {
 	width:198px;
 }
@@ -511,4 +762,10 @@ body.f-width-change .jobs-sort dl {
 }
 body.f-width-change .jobs-detailed li p {
 	width:700px;
+}
+body.f-width-change .problem-menu li {
+	padding:0 10px;
+}
+body.f-width-change .problem-menu li a {
+	width:102px;
 }

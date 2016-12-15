@@ -1,3 +1,108 @@
+(function(b, c) {
+	function a(q, t) {
+		var k = {
+			intervalTime: 4000,
+			duration: 500
+		};
+		var i = b.extend({},k, t);
+		var d = q.find("#slideImg li"),
+			h = q.find("#handle_box"),
+			j = q.find("#ctrl_prev"),
+			e = q.find("#ctrl_next"),
+			s = "",
+			o,
+			p = d.length,
+			n = -1,
+			f = null;
+		if(p == 1) {
+			return !0
+		}
+		b.each(d,
+			function(u, v) {
+				s += '<li><a href="javascript:;"></a></li>'
+			});
+		h.append(s);
+		o = h.find("li");
+
+		function r(u) {
+			var v = d.filter(".slide-active");
+			d.stop(true, true);
+			d.eq(u).animate({
+				opacity: 1
+			}).css("z-index", "1").siblings().animate({
+				opacity: 0
+			}).css("z-index", "0");
+			o && o.removeClass("hover").eq(u).addClass("hover")
+		}
+
+		function g() {
+			n--;
+			n = n < 0 ? p - 1 : n;
+			r(n)
+		}
+
+		function l() {
+			n++;
+			n = n > p - 1 ? 0 : n;
+			r(n)
+		}
+
+		function m() {
+			if(f) {
+				clearInterval(f)
+			}
+			f = setInterval(function() {
+					l()
+				},
+				i.intervalTime)
+		}
+		q.on("click", "#ctrl_prev",
+			function(u) {
+				g()
+			}).on("click", "#ctrl_next",
+			function(u) {
+				l()
+			}).on("click", "#handle_box li",
+			function(v) {
+				if(b(this).hasClass("hover")) {
+					return
+				}
+				var u = b(this).index();
+				n = u;
+				r(u)
+			});
+		b("#handle_box li").on("mouseenter",
+			function() {
+				if(b(this).hasClass("hover")) {
+					return
+				}
+				var u = b(this).index();
+				n = u;
+				r(u)
+			});
+		q.on("mouseenter",
+			function(u) {
+				if(f) {
+					clearInterval(f)
+				}
+				j.show();
+				e.show()
+			}).on("mouseleave",
+			function(u) {
+				m();
+				j.hide();
+				e.hide()
+			});
+		l();
+		m()
+	}
+	b.fn.showSlider = function(d) {
+		return this.each(function(e, f) {
+			return a(b(this), d), !0
+		})
+	}
+})(jQuery);
+
 $(function(){
 	var slideImg = $("#slideImg li");
 	var slideLen = slideImg.length;

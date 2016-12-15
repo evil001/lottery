@@ -44,4 +44,4 @@ function GetVerNum() {
 	return D.getFullYear().toString().substring(2, 4) + '.' + (D.getMonth() + 1) + '.' + D.getDate() + '.' + D.getHours() + '.' + (D.getMinutes() < 10 ? '0' : D.getMinutes().toString().substring(0, 1))
 }
 
-Base.getScript("bottom.js");
+Base.getScript("../js/bottom.js");

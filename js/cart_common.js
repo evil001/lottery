@@ -212,8 +212,7 @@ var $CartComm = function() {
 			var r = p(v);
 			if (r != null) {
 				r.num = r.num + parseInt(t) >= r.stock ? r.stock: r.num + parseInt(t);
-				l(r,
-				function(w) {
+				l(r, function(w) {
 					if (w == 0) {
 						var x = new $CartComm();
 						x.getShopCartNum(function(y) {

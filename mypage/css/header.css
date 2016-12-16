@@ -161,7 +161,7 @@ body {
 	margin-left:10px;
 }
 .Hicon,.F-msg-close,.U_sina s,.U_qq s,.U_wx s,.F-icon-guest s,.F-icon-gray s,.M-nav-help a s,.search_submit,.search_submit_hover,.m-app-dow-img,.u-banner-close,.F-number-l,.F-number-r,.F-bg,.F-android-img,.F-wx-img,.M-wx .F-txt b i,.F-security-img,.F-goods-img,.F-goods-arrow,.m-popup-close a,.u-popup-Tip s,.u-popup-Tip i,.u-popup-Tip b,.f-user-qq,.f-pay-succeed,.f-pay-fail,.roll_close a,.u-cart-name dfn s {
-	background:url(../images/header-icon.png?v=1120);
+	background:url(../../img/header-icon.png);
 }
 .orange_btn,.orange_bg_btn {
 	background:#f60;
@@ -427,17 +427,17 @@ body.home .nav-main li.f-nav-home,body.lottery .nav-main li.f-nav-lottery,body.s
 	line-height:40px;
 }
 .F_goods_rq,.F_goods_xp,.F_goods_tj,.F_goods_xg {
-	background-image:url(../images/index-2014.png?v=0609);
+	background-image:url(../../img/index-2014.png);
 	background-repeat:no-repeat;
 }
 .search a.seaIcon i,.m-menu-all h3 em,.nav-cart-btn i.f-cart-icon,a.u-cart s,.u-mui-tab li.f-cart a.u-menus i,span.nav-new,.cartEmpty i,.g-toolbar li.u-arr .u-menu-hd i,.g-toolbar li.f-home .u-menu-hd,.gth-icon,.att-add-success i,.f-concerned p i,.z-clump-icon {
 	display:block;
-	background-image:url(../images/head-2014.png?v=0603);
+	background-image:url(../../img/head-2014.png);
 	background-repeat:no-repeat;
 }
 .m-ser li .u-icons,.g-special li em,.u-cartEmpty i,.m-narrow-list .u-small-list i,a.delete-close:hover,.limitbuy-icon,.scrollcontent .attentionCon li a.att-close {
 	display:block;
-	background-image:url(../images/comm-2014.gif?v=0612);
+	background-image:url(../../img/comm-2014.gif);
 	background-repeat:no-repeat;
 }
 .ng-box-bg {
@@ -879,10 +879,10 @@ a.u-service-off,a.u-service-off:hover {
 	color:#666!important;
 }
 a.u-service-on i {
-	background:url(../images/service-on-2014.gif) no-repeat;
+	background:url(../../img/service-on-2014.gif) no-repeat;
 }
 a.u-service-off i {
-	background:url(../images/service-off-2014.gif) no-repeat;
+	background:url(../../img/service-off-2014.gif) no-repeat;
 }
 .g-toolbar li.u-arr-hover .u-menu-hd {
 	padding:8px 11px 8px 26px;
@@ -1645,7 +1645,7 @@ a.u-service-off i {
 	padding:15px 0 8px;
 }
 .g-authentication a {
-	background:url(../images/icon.png) no-repeat;
+	background:url(../../img/icon.png) no-repeat;
 	width:90px;
 	height:32px;
 	display:inline-block;
@@ -1711,7 +1711,7 @@ a.u-service-off i {
 }
 .u-sentence span {
 	display:block;
-	background-image:url(../images/sentence.gif?v=0527);
+	background-image:url(../../img/sentence.gif);
 	width:40px;
 	height:200px;
 }
@@ -1886,17 +1886,17 @@ b.curr-arrow {
 	top:67px;
 }
 .u-shortcut li.f-customer-service i {
-	background-image:url(../images/new-on.gif?v=0525);
+	background-image:url(../../img/new-on.gif);
 	background-position:11px 7px;
 }
 .u-shortcut li.f-customer-service.toolbar-hover a i {
-	background-image:url(../images/new-on-orange.gif?v=01052526);
+	background-image:url(../../img/new-on-orange.gif);
 }
 .u-shortcut li.f-customer-service a.z-customer-off i {
-	background-image:url(../images/new-off.gif?v=0525);
+	background-image:url(../../img/new-off.gif);
 }
 .u-shortcut li.f-customer-service.toolbar-hover a.z-customer-off i {
-	background-image:url(../images/new-off-orange.gif?v=0525);
+	background-image:url(../../img/new-off-orange.gif);
 }
 .u-shortcut li.f-client i {
 	background-position:11px -593px;
@@ -1949,7 +1949,7 @@ b.curr-arrow {
 	width:0;
 	height:127px;
 	padding:139px 0 0 0;
-	background-image:url(../images/app-ad.png?v=0613);
+	background-image:url(../../img/app-ad.png);
 	bottom:-130px;
 	right:40px;
 	overflow:hidden;
@@ -2699,7 +2699,7 @@ b.curr-arrow {
 	top:32px;
 }
 a.delete-close {
-	background:url(../images/cart-close.png?v=141120) 2px 2px no-repeat;
+	background:url(../../img/cart-close.png) 2px 2px no-repeat;
 	width:7px;
 	height:7px;
 	padding:2px;
@@ -2992,7 +2992,7 @@ dl:hover dd a.delete-close,dl.hover dd a.delete-close {
 	display:block;
 	width:103px;
 	height:45px;
-	background-image:url(../images/wx-login.png?v=0607);
+	background-image:url(../../img/wx-login.png);
 	position:absolute;
 	right:0;
 	bottom:0;

@@ -87,8 +87,7 @@ function formatFloat(a) {
 	return a
 }
 function ProhibitedCopy() {
-	$(document.body).bind("copy",
-	function() {
+	$(document.body).bind("copy",function() {
 		try {
 			clipboardData.setData("text", "本页内容未经允许请不要随意复制")
 		} catch(a) {}

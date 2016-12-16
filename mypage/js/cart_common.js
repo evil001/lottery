@@ -707,5 +707,5 @@ var $CartComm = function() {
 			}
 		}
 	};
-	j()
+	storeCookieCartData()
 };

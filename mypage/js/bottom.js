@@ -25,7 +25,7 @@ var _InsertIntoCart = function() {
 })();
 
 function getYYData(host,action,param,fun){
-	$.getJSON(host+"/...?action="+action+(param != "" ? "&" : "") + param + "&fun="+fun);
+	$.getJSON(host+"/JPData?action="+action+(param != "" ? "&" : "") + param + "&fun=?",fun);
 }
 
 var loadImgFun = function(){
@@ -167,7 +167,8 @@ yg.Bottom = {
 		setSrcFun: function() {
 			var appendVersion = function(d) {
 				var date = new Date();
-				d.attr("src", d.attr("data") + "?v=" + GetVerNum()).removeAttr("id").removeAttr("data")
+//				d.attr("src", d.attr("data") + "?v=" + GetVerNum()).removeAttr("id").removeAttr("data")
+				d.attr("src",d.attr("data")).removeAttr("id").removeAttr("data");
 			};
 			var ele = $("#pageJS", "head");
 			if (ele.length > 0) {
@@ -1406,7 +1407,7 @@ yg.Bottom = {
 	}
 };
 $(function() {
-	Base.getScript("../js/common.js",function(){
-		Base.getScript("../js/cart_common.js",yg.Bottom.BindEvents);
+	Base.getScript("js/common.js",function(){
+		Base.getScript("js/cart_common.js",yg.Bottom.BindEvents);
 	});
 });
